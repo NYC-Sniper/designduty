@@ -1,0 +1,239 @@
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+$mainFont: 'montserrat',
+sans-serif;
+
+// color
+$light: #fff;
+$dark: #161616;
+$main: #00b4d8;
+$second: #90e0ef;
+$accent: #fca311;
+$lightBG: #f8f9fa;
+
+// breakpoints
+$tablet: 810px;
+$mobile: 480px;
+$smallMobile: 360px;
+
+// reset
+*,
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: $mainFont;
+    box-sizing: border-box;
+}
+
+// mobile menu
+.mobile-menu {
+    display: none;
+}
+
+
+// hero
+.hero {
+    height: 100vh;
+    background-image: url('../assets/hero.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+
+    @media only screen and (max-width: $tablet) {
+
+        .header {
+            padding: 3% 4% !important;
+        }
+
+        .hero-content {
+            margin-top: 30px;
+            align-items: center;
+
+            .tip {
+                align-self: center;
+            }
+
+            .title {
+                padding-right: 0% !important;
+
+                h1 {
+                    text-align: center;
+                    font-size: 2.2rem !important;
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+
+    // overlay
+    &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: transparentize($dark, .7);
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+
+    // header
+    .header {
+        padding: 2% 4%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        // brand 
+        .brand {
+            a {
+                font-family: $mainFont;
+                font-weight: 600;
+                color: $light;
+                font-size: 1.3rem;
+
+                span {
+                    font-weight: 400;
+                }
+            }
+        }
+
+        // menu 
+        .menu {
+            a {
+                color: $dark;
+                font-size: 1.5rem;
+                line-height: 1;
+                display: flex;
+                color: $light;
+            }
+        }
+    }
+
+    // hero content
+    .hero-content {
+        display: flex;
+        align-self: center;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        height: 80vh;
+        padding: 4%;
+
+        // tip
+        .tip {
+            margin-bottom: 20px;
+
+            h5 {
+                font-size: 1.2rem;
+                background-color: $dark;
+                padding: 8px 20px;
+                color: $light;
+            }
+        }
+
+        // title 
+        .title {
+            padding-right: 40%;
+            margin-bottom: 25px;
+
+            h1 {
+                font-size: 3rem;
+                font-weight: 600;
+                color: $light;
+
+                span {
+                    font-weight: 400;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+// global reset
+a {
+    text-decoration: none;
+}
+
+// call to action
+.call-to-action {
+    display: flex;
+
+    @media only screen and (max-width: $tablet){
+        align-self: center;
+        justify-content: center;
+        margin-top: 20px;
+        .cta {
+            padding: 8px 70px !important;
+            margin-left: 0 !important;
+        }
+    }
+
+    .cta {
+        background-color: transparent;
+        border: 3px solid $light;
+        padding: 8px 50px;
+        font-size: 2.3rem;
+        color: $light;
+        font-weight: 600;
+        cursor: pointer;
+        position: relative;
+        transition: all .4s cubic-bezier(0.19, 1, 0.22, 1);
+        margin-left: 5px;
+
+        // hover
+        &:hover {
+            background-color: $light;
+            color: $dark;
+        }
+
+        // frames
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            background-color: transparent;
+            border: 3px solid $light;
+            transition: all .4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        &::before {
+            border-right: 0;
+            border-bottom: 0;
+            top: 0;
+            left: 0;
+            transform: translate(-20%, -20%);
+        }
+
+        &::after {
+            border-top: 0;
+            border-left: 0;
+            bottom: 0;
+            right: 0;
+            transform: translate(20%, 20%);
+        }
+
+        // on hover effect
+        &:hover::after {
+            transform: translate(40%, 40%);
+            height: 50px;
+            width: 50px;
+        }
+
+        // on hover effect
+        &:hover::before {
+            transform: translate(-40%, -40%);
+            height: 50px;
+            width: 50px;
+        }
+    }
+}
